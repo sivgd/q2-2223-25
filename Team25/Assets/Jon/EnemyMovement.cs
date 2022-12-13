@@ -67,5 +67,16 @@ public class EnemyMovement : MonoBehaviour
     //        SceneManager.LoadScene("PlatformerScene");
     //    }
     //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (MoveLeft == true)
+        {
+            MoveLeft = false;
+        }
+        else
+        {
+            MoveLeft = true;
+        }
+    }
 
 }
