@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb2;
     private bool MoveLeft = true;
 
+
     //private Vector2 playerPosition;
 
     //public bool playerOnLeft;
