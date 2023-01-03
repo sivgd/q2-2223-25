@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            rb2.AddForce(new Vector2(accel, 0));
+            rb2.AddForce(new Vector2(accel, 0)); //
         }
 
     }
