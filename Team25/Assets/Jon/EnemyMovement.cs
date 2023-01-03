@@ -10,6 +10,11 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb2;
     private bool MoveLeft = true;
 
+    public GameObject TL;
+    public GameObject TR;
+    public bool TLtrigger, TRtrigger;
+    
+
 
     //private Vector2 playerPosition;
 
@@ -24,17 +29,17 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        //playerPosition = mainPlayer.transform.position;
-        //if (gameObject.transform.position.x > playerPosition.x)
-        //{
-        //    playerOnLeft = true;
-        //    rb2.AddForce(new Vector2(-accel, 0));
-        //}
-        //else
-        //{
-        //    playerOnLeft = false;
-        //    rb2.AddForce(new Vector2(accel, 0));
-        //}
+        TLtrigger = TL.GetComponent<TriggerLeft>().leftcollide;
+        TRtrigger = TR.GetComponent<TriggerRight>().rightcollide;
+        //Debug.Log(TLtrigger + " " + TRtrigger);
+        if (TLtrigger == true)
+        {
+            MoveLeft = false;
+        }
+        if (TRtrigger == true)
+        {
+            MoveLeft = true;
+        }
 
         if (MoveLeft == true)
         {
@@ -45,39 +50,5 @@ public class EnemyMovement : MonoBehaviour
             rb2.AddForce(new Vector2(accel, 0));
         }
 
-        //Move right
-        //if (mainPlayer.transform)
-        //{
-        //rb2.AddForce(new Vector2(accel, 0));
-        //}
-
-        //Move left
-        //if (Input.GetAxis("Horizontal") < 0)
-        //{
-        //rb2.AddForce(new Vector2(-accel, 0));
-        //}
-
-
-
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        SceneManager.LoadScene("PlatformerScene");
-    //    }
-    //}
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (MoveLeft == true)
-        {
-            MoveLeft = false;
-        }
-        else
-        {
-            MoveLeft = true;
-        }
-    }
-
 }
