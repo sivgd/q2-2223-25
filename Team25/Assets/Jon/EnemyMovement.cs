@@ -32,23 +32,25 @@ public class EnemyMovement : MonoBehaviour
         TLtrigger = TL.GetComponent<TriggerLeft>().leftcollide;
         TRtrigger = TR.GetComponent<TriggerRight>().rightcollide;
         //Debug.Log(TLtrigger + " " + TRtrigger);
-        if ((TLtrigger == true) && (TRtrigger == true))
-        if (TLtrigger == true)
+        if ((TLtrigger == true) ^ (TRtrigger == true))
         {
-            MoveLeft = false;
+            Debug.Log(TLtrigger + " " + TRtrigger);
+            if (TLtrigger == true)
+            {
+                MoveLeft = false;
+            }
+            if (TRtrigger == true)
+            {
+                MoveLeft = true;
+            }
         }
-        if (TRtrigger == true)
-        {
-            MoveLeft = true;
-        }
-
         if (MoveLeft == true)
         {
             rb2.AddForce(new Vector2(-accel, 0));
         }
         else
         {
-            rb2.AddForce(new Vector2(accel, 0)); //
+            rb2.AddForce(new Vector2(accel, 0));
         }
 
     }
