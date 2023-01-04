@@ -32,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
         TLtrigger = TL.GetComponent<TriggerLeft>().leftcollide;
         TRtrigger = TR.GetComponent<TriggerRight>().rightcollide;
         //Debug.Log(TLtrigger + " " + TRtrigger);
+        if ((TLtrigger == true) && (TRtrigger == true))
         if (TLtrigger == true)
         {
             MoveLeft = false;
